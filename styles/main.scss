@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+//body{
+//    width: 100vw;
+//    height: 100vh;
+//    overflow: hidden;
+//    font-family: 'Roboto', sans-serif;
+//}
+
+#announcement-banner{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translate(-142.5%, -170%);
+    width: max-content;
+    height: max-content;
+    user-select: none;
+    scale: 0.35;
+
+    .group.first{
+        display: flex;
+
+        p{    
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-size: 40px;
+      //      font-family: 'Roboto', sans-serif;
+        }
+
+        @for $j from 1 through 7{
+            .item-#{$j}{
+                position: relative;
+                width: 50px;
+                height: 72px;
+                border-radius: 12px;
+                background-color: #000;
+                margin: 0 10px;
+                overflow: hidden;
+
+                .first{
+                    
+                    span{
+                        font-size: 40px;
+                   //     font-family: 'Roboto', sans-serif;;
+                        color: #FFF;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+        
+                        @for $i from 1 through 10{
+                            &:nth-child( #{$i} ){
+                                top: calc(#{$i} * 70px - 64px);
+                            }
+                        }
+                    }
+                }
+
+                .second{
+                    
+                    span{
+                        font-size: 40px;
+                      //  font-family: 'Roboto', sans-serif;;
+                        color: #FFF;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+        
+                        @for $i from 1 through 10{
+                            &:nth-child( #{$i} ){
+                                top: calc(#{$i} * 70px - 64px + (9 * 70px + 70px));
+                            }
+                        }
+                    }
+                }
+
+                .third{
+                    visibility: hidden;
+                    &.finish{
+                        visibility: visible;
+                        animation: firstAnime .3s forwards;
+                    }
+
+                    &.finishReverse{
+                        visibility: visible;
+                        animation: secondAnime .3s forwards;
+                    }
+
+                    span{
+                        font-size: 40px;
+                  //      font-family: 'Roboto', sans-serif;;
+                        color: #FFF;
+                        font-weight: bold;
+                        position: absolute;
+                        left: 50%;
+
+
+                        &:first-child{
+                            
+                            transform: translate(-50%, 0px);
+                            }
+
+                        transform: translate(-50%, 82px);
+
+                        &:last-child{
+                            
+                        transform: translate(-50%, 140px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .rightPhotos, .leftText{
+        position: relative;
+        width: auto;
+        height: 72px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        width: 400px;
+
+        img{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            max-height: 72px;
+
+            &:first-child{
+                top: -72px;
+            }
+        }
+
+        p{
+            height: 72px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            font-size: 30px;
+        //    font-family: 'Roboto', sans-serif;;
+            white-space: nowrap;
+            left: 50%;
+            transform: translateX(-50%);
+
+
+            &:first-child{
+                top: -72px;
+            }
+        }
+
+        &.anime{
+           p, img{
+            animation: 1s objectsAnime forwards;
+           }
+        }
+
+        &.animeReverse{
+            p, img{
+                animation: 1s objectsAnimeReverse forwards;
+               }
+        }
+    }
+    .rightPhotos{
+        width: 72px;
+        height: 72px;
+    }
+
+    
+}
+
+
+@keyframes firstAnime{
+    0%, 10%{
+        transform: translate(0, 0);
+    }
+    90%, 100%{
+        transform: translate(0, -70px);
+    }
+}
+
+@keyframes secondAnime{
+    0%, 10%{
+        transform: translate(0, -140px);
+    }
+    90%, 100%{
+        transform: translate(0, -70px);
+    }
+}
+
+@keyframes objectsAnime{
+    0%, 10%{
+        transform: translate(-50%, 0);
+    }
+    90%, 100%{
+        transform: translate(-50%, 72px);
+    }
+}
+ 
+@keyframes objectsAnimeReverse{
+    0%, 10%{
+        transform: translate(-50%, 72px);
+    }
+    90%, 100%{
+        transform: translate(-50%, 0);
+    }
+} 
