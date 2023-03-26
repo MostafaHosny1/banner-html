@@ -218,3 +218,9 @@
         transform: translate(-50%, 0);
     }
 } 
+
+#announcement-banner{ postion:fixed !important; top:8%;}
+@media only screen and (max-width: 768px) {#announcement-banner{position:relative;margin-bottom:-8em;}}
+#announcement-banner .rightPhotos p:first-child, #announcement-banner .leftText p:first-child{top:-60px;}
+#announcement-banner .rightPhotos, #announcement-banner .leftText{margin-top:-6em;}
+#announcement-banner .rightPhotos p, #announcement-banner .leftText p{height:0px;}
